@@ -11,7 +11,9 @@ function multiply(a, b) {
 }
 
 function percentage(a, percent) {
-  return a * percent / 100;
+  const res = a * percent;
+
+  return res / 100;
 }
 
 function div(a, b) {
@@ -19,7 +21,7 @@ function div(a, b) {
 }
 
 function integerDiv(a, b) {
-  return ~~ (a / b);
+  return parseInt(a / b, 10);
 }
 
 function abs(a) {
@@ -51,13 +53,7 @@ function factorialRecursion(x) {
 }
 
 function round(x) {
-  const sign = x < 0 ? -1 : 1;
-  let number = x;
-
-  number *= sign;
-  number = number < ~~number + 0.5 ? number | 0 : ~~number + 1;
-
-  return number * sign;
+  return parseInt(x.toFixed(0), 10);
 }
 
 function rectangle(width, height) {
