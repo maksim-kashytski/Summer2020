@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node src/js-task1/index.js"
   },
   "repository": {
     "type": "git",
