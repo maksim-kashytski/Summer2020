@@ -20,9 +20,9 @@ function oddIntegerValues(a, b) {
 
 function lastDigitInEnglish(number) {
   const digit = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-  const index = number.toString().replace(/\d+(\d)$/, '$1');
+  const index = number.toString();
 
-  return digit[index];
+  return digit[index[index.length - 1]];
 }
 
 module.exports = {

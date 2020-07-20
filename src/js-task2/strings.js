@@ -9,37 +9,35 @@ function reverseString(str) {
 }
 
 function endsWith(str, substr) {
-  if (str.length < substr.length) return false;
-  if (str === substr) return true;
-
-  let i = 1;
-
-  while (true) {
-    if (str[str.length - i] === substr[substr.length - i]) {
-      i += 1;
-    } else if (substr[substr.length - i] === undefined) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  return new RegExp(`${substr}$`).test(str);
 }
 
 function startsWith(str, substr) {
+  return new RegExp(`^${substr}`).test(str);
+}
+
+function endsWithAlternative(str, substr) {
   if (str.length < substr.length) return false;
-  if (str === substr) return true;
 
-  let i = 0;
-
-  while (true) {
-    if (str[i] === substr[i]) {
-      i += 1;
-    } else if (substr[i] === undefined) {
-      return true;
-    } else {
+  for (let i = 1; i <= str.length; i += 1) {
+    if (str[str.length - i] !== substr[substr - i] && substr[substr - i] !== undefined) {
       return false;
     }
   }
+
+  return true;
+}
+
+function startsWithAlternative(str, substr) {
+  if (str.length < substr.length) return false;
+
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] !== substr[i] && substr[i] !== undefined) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 function isCamelCase(str) {
@@ -59,17 +57,9 @@ function isNaN(value) {
 }
 
 function isFinite(value) {
-  if (typeof value !== 'number') return false;
+  const number = +value;
 
-  if (
-    value === Infinity ||
-    value === -Infinity ||
-    value !== value
-  ) {
-    return false;
-  }
-
-  return true;
+  return !(number === Infinity || number === -Infinity || number !== number);
 }
 
 function isFalsy(value) {
@@ -94,6 +84,8 @@ module.exports = {
   reverseString,
   endsWith,
   startsWith,
+  endsWithAlternative,
+  startsWithAlternative,
   isCamelCase,
   isSnakeCase,
   isKebabCase,

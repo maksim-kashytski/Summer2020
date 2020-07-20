@@ -2,6 +2,8 @@ const {
   reverseString,
   endsWith,
   startsWith,
+  endsWithAlternative,
+  startsWithAlternative,
   isCamelCase,
   isSnakeCase,
   isKebabCase,
@@ -24,6 +26,8 @@ const createFunctions = require('./closures');
 console.log(`reverseString('qwerty') = ${reverseString('qwerty')}`);
 console.log(`endsWith('qwerty', 'rty') = ${endsWith('qwerty', 'rty')}`);
 console.log(`startsWith('qwerty', 'qwe') = ${startsWith('qwerty', 'qwe')}`);
+console.log(`endsWithAlternative('qwerty', 'rty') = ${endsWithAlternative('qwerty', 'rty')}`);
+console.log(`startsWithAlternative('qwerty', 'qwe') = ${startsWithAlternative('qwerty', 'qwe')}`);
 console.log(`isCamelCase('isCamelCase') = ${isCamelCase('isCamelCase')}`);
 console.log(`isSnakeCase('is_snake_case') = ${isSnakeCase('is_snake_case')}`);
 console.log(`isKebabCase('kebab') = ${isKebabCase('is-kebab-case')}`);
