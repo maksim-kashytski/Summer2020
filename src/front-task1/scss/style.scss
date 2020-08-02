@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Montserrat;
+}
+
+body {
+  margin: 0 auto;
+  width: 1440px;
+}
+
+.text {
+  display: inline-block;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.header {
+  position: relative;
+  color: #FFFFFF;
+
+  &__sushi-01 {
+    position: absolute;
+    left: 0;
+    bottom: -250px;
+  }
+
+  &__sushi-02 {
+    position: absolute;
+    right: 60px;
+    bottom: -150px;
+  }
+
+
+  &__container {
+    position: absolute;
+    margin-top: 128px;
+    width: 100%;
+    height: 670px;
+  }
+
+  &__title {
+    margin: 120px 0 0 90px;
+    width: 440px;
+    font-size: 77px;
+  }
+
+  &__text {
+    margin: 20px 0 0 90px;
+    width: 600px;
+  }
+
+  &__button {
+    margin: 40px 0 0 90px;
+    background-color: #FFFFFF;
+    color: #FF7F7F;
+
+    &_hover:hover {
+      border: 2px solid #FFFFFF;
+      width: 320px;
+      height: 62px;
+      background-color: rgba(0, 0, 0, 0);
+      color: #FFFFFF;
+    }
+  }
+
+  &__background {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.menu {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 128px;
+  background-color: rgba(255, 128, 128, 0.75);
+
+  &__column:nth-child(odd) {
+    display: inline-block;
+    width: 150px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color:#FFFFFF;
+    font-size: 25px;
+    margin: 0 25px;
+
+    &_hover:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__logo {
+    margin-left: 50px;
+  }
+
+  &__search {
+    margin-left: 50px;
+  }
+}
+
+.order-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 324px;
+  height: 66px;
+  border-radius: 33px;
+  font-size: 25px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.main {
+  margin-top: -300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.popular {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 800px;
+  background-color: #FF7F7F;
+
+  &__title {
+    margin-top: 180px;
+    color: #FFFFFF;
+  }
+
+  &__text {
+    margin-top: 30px;
+    width: 710px;
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: 200;
+    text-align: center;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    width: 1100px;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  color: #FFFFFF;
+
+  &__title {
+    margin: 40px 0 0 0;
+    font-size: 28px;
+  }
+
+  &__description {
+    font-weight: 200;
+    text-align: center;
+  }
+}
+
+.promo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 640px;
+  color: #FF7F7F;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    width: 1210px;
+  }
+
+  &__logo {
+    align-self: center;
+    margin-top: 40px;
+    border-radius: 50%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 570px;
+  }
+
+  &__title {
+    margin: 40px 0 40px 0;
+  }
+
+  &__text {
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    background-color: #FF7F7F;
+    color: #FFFFFF;
+
+    &_hover:hover {
+      border: 2px solid #FF7F7F;
+      width: 320px;
+      height: 62px;
+      background-color: rgba(0, 0, 0, 0);
+      color: #FF7F7F;
+    }
+  }
+}
+
+.subscribe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 800px;
+
+  &__sushi-01 {
+    position: absolute;
+    left: 50px;
+    top: 100px;
+  }
+
+  &__sushi-02 {
+    position: absolute;
+    right: 180px;
+    top: 50px;
+  }
+
+  &__sushi-03 {
+    position: absolute;
+    left: 430px;
+    bottom: 100px;
+  }
+
+  &__sushi-04 {
+    position: absolute;
+    right: 170px;
+    bottom: -50px;
+    z-index: 1;
+  }
+
+  &__title {
+    margin-top: 170px;
+    color: #FF7F7F;
+  }
+
+  &__text {
+    margin-top: 40px;
+    width: 900px;
+    color: #FF7F7F;
+    text-align: center;
+  }
+
+  &__dispatch {
+    margin-top: 60px;
+  }
+
+  &__background {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__background-img {
+    display: block;
+  }
+}
+
+.dispatch {
+  display: flex;
+  width: 770px;
+  border-radius: 33px;
+  background-color: #F3F3F3;
+
+  &__input {
+    border: 0;
+    border-radius: 33px;
+    padding: 0 25px 0 25px;
+    width: 500px;
+    height: 66px;
+    font-size: 25px;
+    background-color: #F3F3F3;
+    outline: none;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 33px;
+    width: 220px;
+    background-color: #FF7F7F;
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.5s;
+
+    &_hover:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 660px;
+  color: #FFFFFF;
+  background-color: #111111;
+  font-size: 26px;
+  font-weight: 200;
+
+  &__social {
+    display: flex;
+    margin: 0 100px 0 100px;
+    flex-direction: column;
+  }
+
+  &__column {
+    display: flex;
+    margin-left: 40px;
+    flex-direction: column; 
+  }
+
+  &__title {
+    margin: 235px 0 25px 0;
+    font-size: 34px;
+    font-weight: 200;
+  }
+
+  &__text {
+    margin: 0 0 0 0;
+    width: 460px;
+    font-size: 25px;
+  }
+
+  &__link {
+    margin: 0 0 10px 0;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: all 0.5s;
+
+    &_hover:hover {
+      transform: translateX(-20px);
+    }
+  }
+}
+
+.social {
+  margin-top: 30px;
+
+  &__logo {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 1440px) {
+  body {
+    margin: 0;
+    width: 100%;
+  }
+
+  .footer {
+    height: 1100px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .header__sushi-01 {
+    display: none;
+  }
+
+  .header__sushi-02 {
+    display: none;
+  }
+
+  .promo {
+    height: auto;
+    
+    &__container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__info {
+      align-items: center;
+    }
+  }
+
+  .popular {
+    height: auto;
+
+    &__container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .menu {
+    height: 200px;
+
+    &__column:nth-child(even) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__link {
+      display: block;
+      margin: 0 0 5px 0;
+    }
+  }
+}
