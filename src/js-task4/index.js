@@ -1,11 +1,11 @@
 // Task 1
 
 const Mammal = {
-  eat: function() { console.log(`${this.name} is eating`) }
+  eat() { console.log(`${this.name} is eating`); },
 };
 
 const Human = {
-  run: function() { console.log(`${this.name} is running`) }
+  run() { console.log(`${this.name} is running`); },
 };
 
 function Man(name, age) {
@@ -40,24 +40,25 @@ al2.eat(); // Alex is eating
 
 // Task 2
 
-let junior = {
+const junior = {
   experience: 1,
 };
 
-let fullstack = {
+const fullstack = {
   salary: 3000,
-  __proto__: junior,
 };
 
-let architect = {
+const architect = {
   knowledge: 100500,
-  __proto__: fullstack,
 };
 
-let webdev = {
+const webdev = {
   efficiency: 100,
-  __proto__: architect,
 };
+
+fullstack.setPrototypeOf = junior;
+architect.setPrototypeOf = fullstack;
+webdev.setPrototypeOf = architect;
 
 // Task 3
 
@@ -97,9 +98,27 @@ function moves(model) {
   };
 }
 
+function starts(model) {
+  return {
+    start: () => console.log(`${model} is starting...`),
+  };
+}
+
+function honks(model) {
+  return {
+    honk: () => console.log(`the ${model} honks...`),
+  };
+}
+
+function shoots(model) {
+  return {
+    shoot: () => console.log(`${model} is shooting...`),
+  };
+}
+
 function createBicycle(model) {
   return {
-    model,
+    ...model,
     ...moves(model),
   };
 }
@@ -107,18 +126,11 @@ function createBicycle(model) {
 const bicycle = createBicycle('stels');
 bicycle.move();
 
-function starts({ model }) {
-  return {
-    start: () => console.log(`${model} is starting...`),
-  };
-}
-
 function createVehicle(model) {
-  const vehicle = createBicycle(model);
-
   return {
-    ...vehicle,
-    ...starts(vehicle),
+    ...model,
+    ...moves(model),
+    ...starts(model),
   };
 }
 
@@ -126,18 +138,12 @@ const vehicle = createVehicle('boat');
 vehicle.start();
 vehicle.move();
 
-function honks({ model }) {
-  return {
-    honk: () => console.log(`the ${model} honks...`),
-  };
-}
-
 function createCar(model) {
-  const car = createVehicle(model);
-
   return {
-    ...car,
-    ...honks(car),
+    ...model,
+    ...moves(model),
+    ...starts(model),
+    ...honks(model),
   };
 }
 
@@ -146,18 +152,13 @@ car.move();
 car.start();
 car.honk();
 
-function shoots({ model }) {
-  return {
-    shoot: () => console.log(`${model} is shooting...`),
-  };
-}
-
 function createTank(model) {
-  const tank = createCar(model);
-
   return {
-    ...tank,
-    ...shoots(tank),
+    ...model,
+    ...moves(model),
+    ...starts(model),
+    ...honks(model),
+    ...shoots(model),
   };
 }
 
