@@ -56,9 +56,9 @@ const webdev = {
   efficiency: 100,
 };
 
-fullstack.setPrototypeOf = junior;
-architect.setPrototypeOf = fullstack;
-webdev.setPrototypeOf = architect;
+Object.setPrototypeOf(fullstack, junior);
+Object.setPrototypeOf(architect, fullstack);
+Object.setPrototypeOf(webdev, architect);
 
 // Task 3
 
