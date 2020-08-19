@@ -2,9 +2,10 @@
 
 const arr1 = [1, 3, 2, 10, 18, 0, 3, 7, 1, 4, 2];
 
-console.log(arr1.sort()[0]);
-console.log(arr1.sort((a, b) => b - a)[0]);
+console.log(Math.max(...arr1));
+console.log(Math.min(...arr1));
 console.log(arr1.reduce((sum, current) => sum + current));
+console.log(arr1.reduce((sum, current) => sum + current) / arr1.length);
 
 // Task 2
 
@@ -16,17 +17,29 @@ const arr2 = [
   [5, 4, 0, 8, 7],
 ];
 
-for (let i = 0, l = arr2.length; i < l; i += 1) {
-  if (arr2[i][i] < 0) arr2[i][i] = 10;
-  else arr2[i][i] = 20;
+function replaceNumbers(arr) {
+  const changedArr = arr;
+
+  for (let i = 0, l = changedArr.length; i < l; i += 1) {
+    if (changedArr[i][i] < 0) changedArr[i][i] = 10;
+    else changedArr[i][i] = 20;
+  }
+
+  return changedArr;
 }
 
-console.log(arr2);
+console.log(replaceNumbers(arr2));
 
 // Task 3
 
 function allocatesArray() {
-  return new Array(20).fill(0).map((item, index) => index * 5);
+  const arr = [];
+
+  for (let i = 0; i < 20; i += 1) {
+    arr.push(i * 5);
+  }
+
+  return arr;
 }
 
 console.log(allocatesArray());
