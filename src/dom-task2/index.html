@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="scss/style.css">
+    <link rel="stylesheet" href="css/animation.css" type="text/css" />
+    <link rel="stylesheet" href="css/fontello.css" type="text/css" />
+    <link rel="stylesheet" href="css/fontello-codes.css" type="text/css" />
+    <link rel="stylesheet" href="css/fontello-embedded.css" type="text/css" />
+    <link rel="stylesheet" href="css/fontello-ie7.css" type="text/css" />
+    <link rel="stylesheet" href="css/fontello-ie7-codes.css" type="text/css" />
+    <script src="script/index.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <title>TASK</title>
+  </head>
+  <body>
+    <main>
+      <article class="task">
+        <h2 class="task__title">#Task 1</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Create a TreeView component
+          <p class="task__tab">
+            * Initially only the top items must be visible
+            <br/>* On item click
+            <br/>* If its children are hidden (collapsed), they must be made visible (expanded)
+            <br/>* If its children are visible (expanded), they must be made hidden (collapsed)
+            <br/>* Research about events
+          </p>
+        </p>
+        <section id="nesting" class="div-inside">
+          <div>
+            <div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div>
+              <div></div>
+              <div></div>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </section>
+        <hr class="task__line"/>
+      </article>
+
+      <article class="task">
+        <h2 class="task__title">#Task 2</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Create a Simple JS Carousel with N images and two arrows for image control
+        </p>
+        <section>
+          <div class="carousel" id="carousel">
+            <img id="preloader" class="carousel__preloader" src="https://i.ya-webdesign.com/images/loading-animated-png-3.gif" />
+            <figure>
+            </figure>
+            <div id="carousel__prev" class="carousel__prev icon-left-open"></div>
+            <div id="carousel__next" class="carousel__next icon-right-open"></div>
+          </div>
+        </section>
+        <hr class="task__line"/>
+        <section class="control">
+          <input id="query" class="control__input" value="landscape" placeholder="landscape"/>
+          <div class="control__button" onclick="showCarousel()">showCarousel()</div>
+        </section>
+      </article>
+
+      <article class="task">
+        <h2 class="task__title">#Task 3</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Create a TODO list with the following UI controls
+          <p class="task__tab">
+            * Form input for new Item
+            <br/>* Button for adding the new Item
+            <br/>* Button for deleting some item
+            <br/>* "Show all items" and "Hide item" Buttons
+          </p>
+        </p>
+        <section id="task-1" class="task-field div-inside">
+        </section>
+        <hr class="task__line"/>
+        <section class="control">
+          <div class="control__button" onclick="divInside_1()">getElementsByTagName()</div>
+          <div class="control__button" onclick="divInside_2()">querySelectorAll()</div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
