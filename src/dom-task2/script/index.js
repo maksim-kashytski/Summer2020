@@ -85,18 +85,28 @@ async function getImages(root, query) {
       });
     })
     .then((res) => {
-      const delay = new Promise(resolve => setTimeout(resolve, 500));
-
-      return Promise.all([res.hits.map((item) => item.webformatURL), delay])
+      return res.hits.map((item) => item.webformatURL);
     })
     .then((res) => {
-      res[0].forEach((element) => {
+      const onLoad = [];
+
+      res.forEach((element) => {
         const div = document.createElement('div');
         const img = document.createElement('img');
+
         img.src = element;
+
+        onLoad.push(new Promise((res) => {
+          img.onload = function() {
+            res();
+          }
+        }));
+
         div.append(img);
         root.append(div);
       });
+
+      return Promise.all(onLoad);
     });
 }
 
@@ -151,12 +161,15 @@ async function showCarousel() {
   const figure = $(root).find('figure')
 
   figure.text('')
+  figure.hide();
   buttons.hide();
   preloader.show();
 
   await getImages(figure, query);
-  carousel(root);
 
   preloader.hide();
+  figure.show();
   buttons.show();
+
+  carousel(root);
 }
