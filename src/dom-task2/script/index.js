@@ -1,63 +1,30 @@
-// (() => {
-//   $('#nesting > div').find('div').hide();
-
-//   const nodes = $('#nesting').find('div');
-
-//   for (let i = 0; i < nodes.length; i += 1) {
-//     if (nodes[i].children.length === 0) {
-//       $(nodes[i]).addClass('tree icon-doc-text');
-//       $(nodes[i]).prepend('no_name.docx');
-//     } else {
-//       $(nodes[i]).addClass('tree icon-folder');
-//       $(nodes[i]).prepend('folder');
-//     }
-//   }
-
-//   $('#nesting').click((e) => {
-//     const children = $(e.target).children();
-
-//     if (!children.is(':visible')) {
-//       $(e.target).toggleClass('icon-folder icon-folder-open');
-//       children.show();
-//     } else {
-//       $(e.target).toggleClass('icon-folder-open icon-folder');
-//       children.hide();
-//     }
-//   });
-// })();
-
+// #Task 
 (() => {
-  const childs = document.querySelector('#nesting > div').getElementsByTagName('div');
+  $('#nesting > div').find('div').hide();
 
-  [].forEach.call(childs, (element) => {
-    element.style.display = 'none';
-  });
-
-  const nodes = document.getElementById('nesting').getElementsByTagName('div');
+  const nodes = $('#nesting').find('div');
 
   for (let i = 0; i < nodes.length; i += 1) {
     if (nodes[i].children.length === 0) {
-      nodes[i].className = 'tree icon-doc-text';
-      nodes[i].prepend('no_name.docx'); // Вставит надпись no_name.docx в начало элемента nodes[i]
+      $(nodes[i]).addClass('tree icon-doc-text');
+      $(nodes[i]).prepend('no_name.docx');
     } else {
-      nodes[i].className = 'tree icon-folder';
-      nodes[i].prepend('folder'); // Вставит надпись folder в начало элемента nodes[i]
+      $(nodes[i]).addClass('tree icon-folder');
+      $(nodes[i]).prepend('folder');
     }
   }
 
-  nesting.onclick = (e) => {
-    const { children } = e.target; // Тоже самое что сonst children = e.target.children
+  $('#nesting').click((e) => {
+    const children = $(e.target).children();
 
-    [].forEach.call(children, (element) => {
-      if (element.style.display === 'none') {
-        e.target.className = 'tree icon-folder-open';
-        element.style.display = 'block';
-      } else {
-        e.target.className = 'tree icon-folder';
-        element.style.display = 'none';
-      }
-    });
-  };
+    if (!children.is(':visible')) {
+      $(e.target).toggleClass('icon-folder icon-folder-open');
+      children.show();
+    } else {
+      $(e.target).toggleClass('icon-folder-open icon-folder');
+      children.hide();
+    }
+  });
 })();
 
 // #Task 2
@@ -96,11 +63,7 @@ async function getImages(root, query) {
 
         img.src = element;
 
-        onLoad.push(new Promise((res) => {
-          img.onload = function() {
-            res();
-          }
-        }));
+        onLoad.push(new Promise((res) => { img.onload = res; }));
 
         div.append(img);
         root.append(div);
@@ -172,4 +135,29 @@ async function showCarousel() {
   buttons.show();
 
   carousel(root);
+}
+
+// #Task 3
+
+function addNewItem() {
+  const root = $('#TODO');
+  const item = document.createElement('div');
+  const button = '<button onclick="deleteItem(this)">&#10008;</button>';
+  
+  item.innerHTML = `${$('#newItem').val()}${button}`;
+  item.className = 'TODO__item';
+
+  root.append(item);
+}
+
+function showAll() {
+  $('#TODO').children().show();
+}
+
+function hideAll() {
+  $('#TODO').children().hide();
+}
+
+function deleteItem(item) {
+  $(item.parentNode).remove();
 }

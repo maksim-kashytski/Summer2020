@@ -72,12 +72,6 @@ main {
   }
 }
 
-.task-field {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0 20px 0;
-}
-
 .div-inside {
   width: 300px;
   margin: 20px auto 20px auto;
@@ -164,5 +158,20 @@ $viewer-distance: 400px;
       width: 100%;
       box-sizing: border-box;
     }
+  }
+}
+
+.TODO {
+  max-width: 400px;
+  margin: 20px auto 20px auto;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(151, 151, 151, 0.2);
   }
 }

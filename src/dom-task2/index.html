@@ -64,7 +64,7 @@
         </section>
         <hr class="task__line"/>
         <section class="control">
-          <input id="query" class="control__input" value="landscape" placeholder="landscape"/>
+          <input id="query" class="control__input" value="dark" placeholder="dark"/>
           <div class="control__button" onclick="showCarousel()">showCarousel()</div>
         </section>
       </article>
@@ -81,12 +81,34 @@
             <br/>* "Show all items" and "Hide item" Buttons
           </p>
         </p>
-        <section id="task-1" class="task-field div-inside">
+        <section id="TODO" class="TODO">
+          <div class="TODO__item">
+            As I walk through the valley of the shadow of death
+            I take a look at my life and realize there's nothin' left
+            ‘Cause I've been blastin' and laughin' so long That
+            even my momma thinks that my mind is gone
+            <button onclick="deleteItem(this)">✘</button>
+          </div>
+          <div class="TODO__item">
+            Somebody once told me the world is gonna roll me
+            I ain't the sharpest tool in the shed
+            She was looking kind of dumb with her finger
+            and her Thumb in the shape of an "L" on her forehead
+            <button onclick="deleteItem(this)">✘</button>
+          </div>
+          <div class="TODO__item">
+            Yesterday, all my troubles seemed so far away
+            Now it looks as though they’re here to stay
+            Oh, I believe in yesterday.
+            <button onclick="deleteItem(this)">✘</button>
+          </div>
         </section>
         <hr class="task__line"/>
         <section class="control">
-          <div class="control__button" onclick="divInside_1()">getElementsByTagName()</div>
-          <div class="control__button" onclick="divInside_2()">querySelectorAll()</div>
+          <input id="newItem" class="control__input" placeholder="anything"/>
+          <div class="control__button" onclick="addNewItem()">addNewItem()</div>
+          <div class="control__button" onclick="showAll()">showAll()</div>
+          <div class="control__button" onclick="hideAll()">hideAll()</div>
         </section>
       </article>
     </main>
