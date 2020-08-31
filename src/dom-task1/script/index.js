@@ -18,11 +18,13 @@ function divInside_2() {
 }
 
 function writeInConsole() {
-  console.log($('#task-2').val());
+  console.log(document.getElementById('task-2').value);
 }
 
 function changeColor() {
-  $('#task-3').css('background-color', $('#background-color').val());
+  const { value } = document.getElementById('background-color');
+
+  document.getElementById('task-3').style.backgroundColor = value;
 }
 
 function randomDiv() {
@@ -102,11 +104,15 @@ function moveDiv() {
 }
 
 function textColor() {
-  $('textarea').css('color', $('#text-color').val());
+  const { value } = document.getElementById('text-color');
+
+  document.querySelector('textarea').style.color = value;
 }
 
 function textBackground() {
-  $('textarea').css('background-color', $('#text-background').val());
+  const { value } = document.getElementById('text-background');
+
+  document.querySelector('textarea').style.backgroundColor = value;
 }
 
 const tags = [
@@ -120,19 +126,19 @@ const tags = [
   'http', 'http', 'CMS',
 ];
 
-function generateTagCloud(tags, min, max) {
+function generateTagCloud(arr, min, max) {
   const eachElement = [];
   const entries = [];
 
-  for (let i = 0, l = tags.length; i < l; i += 1) {
-    if (!eachElement.includes(tags[i])) eachElement.push(tags[i]);
+  for (let i = 0, l = arr.length; i < l; i += 1) {
+    if (!eachElement.includes(arr[i])) eachElement.push(arr[i]);
   }
 
   for (let i = 0, l = eachElement.length; i < l; i += 1) {
     entries.push(0);
 
-    for (let j = 0, m = tags.length; j < m; j += 1) {
-      if (eachElement[i] === tags[j]) entries[i] += 1;
+    for (let j = 0, m = arr.length; j < m; j += 1) {
+      if (eachElement[i] === arr[j]) entries[i] += 1;
     }
   }
 
