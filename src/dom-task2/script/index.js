@@ -1,30 +1,42 @@
-// #Task 
+// #Task 1
+
 (() => {
-  $('#nesting > div').find('div').hide();
-
-  const nodes = $('#nesting').find('div');
-
-  for (let i = 0; i < nodes.length; i += 1) {
-    if (nodes[i].children.length === 0) {
-      $(nodes[i]).addClass('tree icon-doc-text');
-      $(nodes[i]).prepend('no_name.docx');
+  function decorate(node) {
+    if (node.children.length === 0) {
+      node.className = 'tree icon-doc-text';
+      node.prepend('no_name.docx');
     } else {
-      $(nodes[i]).addClass('tree icon-folder');
-      $(nodes[i]).prepend('folder');
+      node.className = 'tree icon-folder';
+      node.prepend('folder');
     }
   }
 
-  $('#nesting').click((e) => {
-    const children = $(e.target).children();
+  const rootNodes = document.querySelectorAll('#nesting > div');
 
-    if (!children.is(':visible')) {
-      $(e.target).toggleClass('icon-folder icon-folder-open');
-      children.show();
-    } else {
-      $(e.target).toggleClass('icon-folder-open icon-folder');
-      children.hide();
-    }
+  rootNodes.forEach((node) => {
+    const children = node.getElementsByTagName('div');
+
+    decorate(node);
+
+    Array.prototype.forEach.call(children, (node) => {
+      node.style.display = 'none';
+      decorate(node);
+    });
   });
+
+  nesting.onclick = (e) => {
+    const { children } = e.target;
+
+    Array.prototype.forEach.call(children, (node) => {
+      if (node.style.display === 'none') {
+        e.target.className = 'tree icon-folder-open';
+        node.style.display = 'block';
+      } else {
+        e.target.className = 'tree icon-folder';
+        node.style.display = 'none';
+      }
+    });
+  };
 })();
 
 // #Task 2
@@ -74,42 +86,42 @@ async function getImages(root, query) {
 }
 
 function carousel(root) {
-  const figure = root.find('figure');
-  const images = figure.children();
+  const figure = root.querySelector('figure');
+  const images = figure.children;
   const n = images.length;
   const gap = 0;
   const theta = (2 * Math.PI) / n;
   let currImage = 0;
 
   function rotateCarousel(imageIndex) {
-    figure.css('transform', `rotateY(${imageIndex * (-theta)}rad)`);
+    figure.style.transform = `rotateY(${imageIndex * (-theta)}rad)`;
   }
 
   function setupCarousel(n, s) {
     const apothem = s / (2 * Math.tan(Math.PI / n));
 
-    figure.css('transformOrigin', `50% 50%${-apothem}px`);
+    figure.style.transformOrigin = `50% 50%${-apothem}px`;
 
     for (let i = 1; i < n; i += 1) {
-      $(images[i]).css({
-        'padding': `${gap}px`,
-        'transformOrigin': `50% 50%${-apothem}px`,
-        'transform': `rotateY(${i * theta}rad)`,
-      });
+        images[i].style.padding = `${gap}px`;
+        images[i].style.transformOrigin = `50% 50%${-apothem}px`;
+        images[i].style.transform = `rotateY(${i * theta}rad)`;
     }
 
     rotateCarousel(currImage);
   }
 
   function setupNavigation() {
-    $('#carousel__prev, #carousel__next').click((e) => {
-      e.stopPropagation();
-
-      if ($(e.target).hasClass('carousel__next')) currImage += 1;
-      else currImage -= 1;
-
-      rotateCarousel(currImage);
-    });
+    document.querySelectorAll('#carousel__prev, #carousel__next').forEach((button) => {
+      button.onclick = (e) => {
+        e.stopPropagation();
+  
+        if (e.target.classList.contains('carousel__next')) currImage += 1;
+        else currImage -= 1;
+  
+        rotateCarousel(currImage);
+      }
+    })
   }
 
   setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
@@ -117,22 +129,22 @@ function carousel(root) {
 }
 
 async function showCarousel() {
-  const preloader = $('#preloader');
-  const buttons = $('#carousel__prev, #carousel__next');
-  const query = $('#query').val();
-  const root = $('#carousel');
-  const figure = $(root).find('figure')
+  const preloader = document.getElementById('preloader');
+  const buttons = document.querySelectorAll('#carousel__prev, #carousel__next');
+  const query = document.getElementById('query').value;
+  const root = document.getElementById('carousel');
+  const figure = root.querySelector('figure');
 
-  figure.text('')
-  figure.hide();
-  buttons.hide();
-  preloader.show();
+  figure.innerHTML = '';
+  figure.style.display = 'none';
+  buttons.forEach((button) => button.style.display = 'none');
+  preloader.style.display = 'inline-block';
 
   await getImages(figure, query);
 
-  preloader.hide();
-  figure.show();
-  buttons.show();
+  preloader.style.display = 'none';
+  figure.style.display = 'block';
+  buttons.forEach((button) => button.style.display = 'block');
 
   carousel(root);
 }
@@ -140,24 +152,33 @@ async function showCarousel() {
 // #Task 3
 
 function addNewItem() {
-  const root = $('#TODO');
+  const root = document.getElementById('TODO');
   const item = document.createElement('div');
   const button = '<button onclick="deleteItem(this)">&#10008;</button>';
+  const newItem = document.getElementById('newItem').value;
   
-  item.innerHTML = `${$('#newItem').val()}${button}`;
+  item.innerHTML = `${newItem}${button}`;
   item.className = 'TODO__item';
 
   root.append(item);
 }
 
 function showAll() {
-  $('#TODO').children().show();
+  const { children } = document.getElementById('TODO');
+
+  for (let i = 0; i < children.length; i += 1) {
+    children[i].style.display = 'flex';
+  }
 }
 
 function hideAll() {
-  $('#TODO').children().hide();
+  const { children } = document.getElementById('TODO');
+
+  for (let i = 0; i < children.length; i += 1) {
+    children[i].style.display = 'none';
+  }
 }
 
 function deleteItem(item) {
-  $(item.parentNode).remove();
+  item.parentNode.remove();
 }
