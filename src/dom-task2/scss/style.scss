@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;700&display=swap');
+
+html, body, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #E1E1E1;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.task {
+  margin: 10px 0 10px 0;
+  padding: 10px 30px 10px 30px;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+  background-color: #E8E8E8;
+  font-family: 'Noto Sans JP';
+  font-weight: 100;
+  color: #808080;
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__tab {
+    margin-left: 2rem;
+  }
+
+  &__line {
+    border: 1px dashed #808080;
+  }
+}
+
+.control {
+  display: flex;
+  justify-content: space-around;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #808080;
+    border-radius: 40px;
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #E1E1E1;
+    }
+  }
+
+  &__input {
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #808080;
+    border-radius: 40px;
+    background-color: #E8E8E8;
+    font-family: 'Noto Sans JP';
+    font-weight: 100;
+    font-size: 1rem;
+    color: #808080;
+    outline: none;
+  }
+}
+
+.div-inside {
+  width: 300px;
+  margin: 20px auto 20px auto;
+}
+
+.tree {
+  padding: 10px;
+  margin: 5px 0 5px 0;
+  border-radius: 10px;
+  background-color: rgba(151, 151, 151, 0.2);
+  user-select: none;
+  cursor: pointer;
+}
+
+$item-width: 50%; // Now we can use percentages
+$item-separation: 0px; // This now is set with Js
+$viewer-distance: 400px;
+
+.carousel {
+  position: relative;
+  padding: 20px;
+  perspective: $viewer-distance;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  %arrow {
+    position: absolute;
+    top: calc(50% - 15px);
+    display: none;
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 40px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: rgb(200, 200, 200);
+      cursor: pointer;
+    }
+  }
+
+  &__prev {
+    @extend %arrow;
+    left: 0;
+  }
+
+  &__next {
+    @extend %arrow;
+    right: 0;
+  }
+
+  &__preloader {
+    display: none;
+    width: 100px;
+  }
+
+  > * {
+    flex: 0 0 auto;
+  }
+
+  figure {
+    margin: 0;
+    width: $item-width;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+
+    div {
+      display: flex;
+      align-items: center;
+      padding: 0 $item-separation / 2;
+      width: 100%;
+      height: 130px;
+      overflow: hidden;
+
+      &:not(:first-of-type) {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+
+    img {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.TODO {
+  max-width: 400px;
+  margin: 20px auto 20px auto;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(151, 151, 151, 0.2);
+  }
+}
