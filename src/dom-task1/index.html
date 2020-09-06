@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="scss/style.css">
+    <script src="script/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <title>TASK</title>
+  </head>
+  <body>
+    <main>
+      <article class="task">
+        <h2 class="task__title">#Task 1</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Write a script that selects all the div nodes that are directly inside other div elements
+          <p class="task__tab">
+            * Create a function using querySelectorAll()
+            <br/>* Create a function using getElementsByTagName()
+          </p>
+        </p>
+        <section id="task-1" class="task-field div-inside">
+          <div></div>
+          <div>
+            <div></div>
+            <div>
+              <div></div>
+            </div>
+          </div>
+          <div></div>
+        </section>
+        <hr class="task__line"/>
+        <section class="control">
+          <div class="control__button" onclick="divInside_1()">getElementsByTagName()</div>
+          <div class="control__button" onclick="divInside_2()">querySelectorAll()</div>
+        </section>
+      </article>
+
+      <article class="task">
+        <h2 class="task__title">#Task 2</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Create a function that gets the value of &lt;input type="text"&gt; and prints its
+          value to the console
+        </p>
+        <hr class="task__line"/>
+        <section class="control">
+          <input id="task-2" class="control__input" placeholder="type text..."/>
+          <div class="control__button" onclick="writeInConsole()">write in console</div>
+        </section>
+      </article>
+      <article id="task-3" class="task">
+        <h2 class="task__title">#Task 3</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Create a function that gets the value of &lt;input type="color"&gt; and sets the
+          background of the body to this value
+        </p>
+        <hr class="task__line"/>
+        <section class="control">
+          <input id="background-color" class="control__color" type="color" value="#E8E8E8" onchange="changeColor()"/>
+        </section>
+      </article>
+
+      <article class="task">
+        <h2 class="task__title">#Task 4</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Write a script that creates a number of "div" elements. Each "div" element must
+          have the following
+          <p class="task__tab">
+            * Random "width" and "height" between "20px" and "100px"
+            <br/>* Random "background-color"
+            <br/>* Random "color"
+            <br/>* Random "position" on the screen
+            <br/>* A "strong" element with text "div" inside the "div"
+            <br/>* Random "border-radius"
+            <br/>* Random "border-color"
+            <br/>* Random "border-width" between "1px" and "20px"
+          </p>
+        </p>
+        <section id="random-div" class="random-div">
+        </section>
+        <hr class="task__line"/>
+        <section class="control">
+          <div class="control__button" onclick="addRandomDiv()">add &lt;div&gt;</div>
+        </section>
+      </article>
+
+      <article class="task">
+        <h2 class="task__title">#Task 5</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Write a script that creates 5 "div" elements and moves them in circular
+          path with interval of 100 milliseconds
+        </p>
+        <section id="move-div" class="move-div">
+        </section>
+        <hr class="task__line"/>
+        <section class="control">
+          <div class="control__button" onclick="addDiv()">add &lt;div&gt;</div>
+          <div class="control__button" onclick="moveDiv()">move &lt;div&gt;</div>
+        </section>
+      </article>
+
+      <article class="task">
+        <h2 class="task__title">#Task 6</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Create a "textarea" and two "input"s with "type="color""
+          <p class="task__tab">
+            * Make the font "color" of the text area as the value of the first color
+            "input"
+            <br/>* Make the "background-color" of the "textarea" as the value of the second
+            "input"
+          </p>
+        </p>
+        <section class="task-field">
+          <textarea></textarea>
+        </section>
+        <hr class="task__line"/>
+        <section class="control">
+          <input id="text-color" class="control__color" type="color" value="#808080" onchange="textColor()"/>
+          <input id="text-background" class="control__color" type="color" value="#E8E8E8" onchange="textBackground()"/>
+        </section>
+      </article>
+
+      <article class="task">
+        <h2 class="task__title">#Task 7</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Create a tag cloud:
+          <p class="task__tab">
+            * Visualize a string of tags (strings) in a given container
+            <br/>* By given "minFontSize" and "maxFontSize", generate the tags with different
+            "font-size", depending on the number of occurrences
+            <br/><br/>see example in "http://i.imgur.com/1Xtv2LC.png"
+            <br/><br/>const tags = [
+            "cms", "javascript", "js", "ASP.NET MVC", ".net", ".net", "css",
+            "wordpress", "xaml", "js", "http",
+            "web", "asp.net", "asp.net MVC", "ASP.NET MVC", "wp", "javascript",
+            "js", "cms", "html", "javascript",
+            "http", "http", "CMS"
+            ];
+            <br/><br/>const tagCloud = generateTagCloud(tags, 17, 42);
+          </p>
+        </p>
+        <section id="tag-cloud" class="task-field tag-cloud">
+        </section>
+        <hr class="task__line"/>
+        <section class="control">
+          <div class="control__button" onclick="addTags()">add Tags</div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
