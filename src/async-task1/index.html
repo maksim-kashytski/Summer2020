@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="scss/style.css">
+    <script src="script/index.js" defer></script>
+    <title>TASK</title>
+  </head>
+  <body>
+    <main>
+      <article class="task">
+        <h2 class="task__title">#Task 1</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Using pure JS (ES6 is allowed) to create and append to DOM the following elements.
+          <p class="task__tab">
+            • text input (value - “data”)
+            <br/>• number input (“seconds”)
+            <br/>• button (any text)
+          </p>
+          GIVEN the text input and number input are filled
+          <br/>WHEN the user clicks on button
+          <br/>THEN the user will see alert message with “data” in not early than “seconds” seconds.
+          <br/>Implement this task using three approaches:
+          <br/><br/>a) Callback
+          <br/>b) Promise
+          <br/>c) Async / await
+          <br/><br/>Hint – create separate function for handling button click, which will extract data from input and
+          handling further logic.
+        </p>
+        <section id="task-1" class="task__area">
+        </section>
+        <hr class="task__line"/>
+        <section id="control-1" class="control">
+        </section>
+      </article>
+
+      <article class="task">
+        <h2 class="task__title">#Task 2, 3</h2>
+        <hr class="task__line"/>
+        <p class="task__description">
+          Create a function ‘httpGet’, which imitates an http request. Signature:
+          <br/>httpGet(url, data), where:
+          <br/>url – is some url to use.
+          <br/>data – is data which should be returned.
+          <br/>This function should be promisified (so that it can be used with .then methods or async /
+          <br/>await).
+          <br/>This function should randomly either resolve the passed data or throw error / reject
+          <br/>promise.
+          <br/>The execution time of this function should also be random, 1-3 seconds
+          <br/>Create an application employee, which will initially render a button.
+          <br/>GIVEN the user presses the button
+          <br/>THEN the user will see a spinner
+          <br/>THEN the data will be fetched (using the httpGet function from task II)
+          <br/>IF data fetching is successful – hide spinner and display employees list
+          <br/>IF data fetching is unsuccessful – hide spinner, display error message and allow the user to
+          <br/>try again 
+          <br/>HINT: save fake data in a separate file, import it in your js application and pass it as a second
+          <br/>argument to your httpGet function.
+        </p>
+        <section id="task-2" class="task__area">
+        </section>
+        <hr class="task__line"/>
+        <section id="control-2" class="control">
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
