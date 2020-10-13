@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>XHR</title>
+    <meta charset="UTF-8">
+    <script src="script/index.js" defer></script>
+  </head>
+  <body>
+    <section id="xhrGet">
+      <select id="section">
+        <option>posts</option>
+        <option>comments</option>
+        <option>albums</option>
+        <option>photos</option>
+        <option>todos</option>
+        <option selected>users</option>
+      </select>
+      <input id="id" type="number" min="1" value="1" />
+      <select id="subsection">
+        <option>posts</option>
+        <option>comments</option>
+        <option>albums</option>
+        <option>photos</option>
+        <option>todos</option>
+        <option>users</option>
+      </select>
+      <input id="payload" placeholder="payload"/>
+      <button onclick="xhrGet()">xhrGet</button>
+    </section>
+    <section id="xhrPost">
+      <label>https://jsonplaceholder.typicode.com/users</label>
+      <button onclick="xhrPost()">xhrPost</button>
+    </section>
+    <section id="xhrDelete">
+      <label>https://jsonplaceholder.typicode.com/users/1</label>
+      <button onclick="xhrDelete()">xhrDelete</button>
+    </section>
+    <div id="results">
+    </div>
+  </body>
+</html>
